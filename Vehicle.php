@@ -8,7 +8,7 @@
 
 class Vehicle {
 
-	protected  $licensePlate;
+	protected $licensePlate;
 
 	/**
 	 * @return mixed
@@ -23,7 +23,11 @@ class Vehicle {
 	public function setLicensePlate($licensePlate) {
 		$this->licensePlate = $licensePlate;
 	}
+
 	public function __construct() {
+		try {
+			$this->setLicensePlate($licensePlate);
+		}
 //	catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
 //			$exceptionType = get_class($exception);
 //			throw(new $exceptionType($exception->getMessage(), 0, $exception));
@@ -33,12 +37,45 @@ class Vehicle {
 }
 
 class NissanAltima extends Vehicle {
+
 	protected $belongsToMarlon;
 
-	public
+	/**
+	 * @param mixed $belongsToMarlon
+	 */
+	public function setBelongsToMarlon($belongsToMarlon) {
+		$this->belongsToMarlon = $belongsToMarlon;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getBelongsToMarlon() {
+		return $this->belongsToMarlon;
+	}
+
+	public function __construct() {
+		try {
+			$this->setBelongsToMarlon($belongsToMarlon);
+		}echo "catch errors";
+}
 }
 
 class HorseAndBuggy extends Vehicle {
-	protected numHorses;
+	protected $numHorses;
+
+	public function getNumHorses() {
+		return $this->numHorses;
+	}
+
+	public function setNumHorses($numHorses) {
+		$this->numHorses = $numHorses;
+	}
+
+	public function __construct() {
+		try {
+			$this->setNumHorses($numHorses)
+	}echo "catch exceptions"
+}
 }
 
